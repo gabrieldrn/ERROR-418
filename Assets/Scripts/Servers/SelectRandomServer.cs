@@ -19,6 +19,7 @@ public class SelectRandomServer : MonoBehaviour
     float bundleSelectTimeLeft;
     float serverSelectTimeLeft;
     bool selectAServer = false;
+    string lightsTag = "ServerStatusLight";
     GameObject rackSelected;
     GameObject serverSelected;
 
@@ -89,7 +90,10 @@ public class SelectRandomServer : MonoBehaviour
      */
     void effectOnServerChosen(GameObject server)
     {
-        server.GetComponent<Renderer>().material.color = new Color(255f, 0f, 0f, 1f);
+        foreach (Transform child in server.transform) if (child.CompareTag(lightsTag)) {
+            Light light = child.GetComponent<Light>();
+            light.color = Color.red;
+        }
     }
 
     /*
@@ -97,6 +101,9 @@ public class SelectRandomServer : MonoBehaviour
      */
     void effectOnServerDead(GameObject server)
     {
-        server.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f, 1f);
+        foreach (Transform child in server.transform) if (child.CompareTag(lightsTag)) {
+            Light light = child.GetComponent<Light>();
+            light.color = Color.black;
+        }
     }
 }
