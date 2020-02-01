@@ -8,9 +8,10 @@ public class InteractionZone : MonoBehaviour
     void OnTriggerEnter(Collider autre)
     {
         inside = true;
-        if (transform.parent.GetComponent<ServerModel>().isHacked)
+        
+        if (transform.parent.GetComponent<ServerModel>().isHacked & transform.parent.GetComponent<ServerModel>().canBeFixed)
         {
-            Debug.Log("Player inside dehack zone");
+            //Debug.Log("Player inside dehack zone");
             Light renew = transform.parent.GetComponent<ServerModel>().GetLight();
             renew.color = Color.green;
             transform.parent.GetComponent<ServerModel>().isHacked = false;
@@ -19,6 +20,6 @@ public class InteractionZone : MonoBehaviour
     void OnTriggerExit(Collider autre)
     {
         inside = false;
-        Debug.Log("Joueur quitte de la zone");
+        //Debug.Log("Joueur quitte de la zone");
     }
 }
