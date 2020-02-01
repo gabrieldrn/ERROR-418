@@ -13,6 +13,7 @@ public class HudController : MonoBehaviour
     public GameObject[] ServersDownToggles;
 
     public GameObject HudLayout;
+    public GameObject LevelClearedLayout;
     public GameObject GameOverLayout;
 
     public void ProgressServersFixed()
@@ -20,10 +21,11 @@ public class HudController : MonoBehaviour
         if (progressFix < ServersFixedToggles.Length)
         {
             ServersFixedToggles[progressFix++].GetComponent<Toggle>().isOn = true;
-        }
-        else
-        {
-            //TODO
+
+            if(progressFix == ServersFixedToggles.Length)
+            {
+                ShowLevelCleared();
+            }
         }
     }
 
@@ -55,14 +57,25 @@ public class HudController : MonoBehaviour
         progressDown = 0;
     }
 
+    public void ResetHudForLevel()
+    {
+        ResetProgress();
+        LevelClearedLayout.SetActive(false);
+    }
+
     private void ShowGameOver()
     {
         GameOverLayout.SetActive(true);
     }
 
+    private void ShowLevelCleared()
+    {
+        LevelClearedLayout.SetActive(true);
+    }
+
     private void Start()
     {
-        if(GameOverLayout == null)
+        if (GameOverLayout == null)
         {
             Debug.LogError("GameOverLayout is not set");
         }
@@ -70,6 +83,21 @@ public class HudController : MonoBehaviour
         if (HudLayout == null)
         {
             Debug.LogError("HudLayout is not set");
+        }
+
+        if (LevelClearedLayout == null)
+        {
+            Debug.LogError("LevelClearedLayout is not set");
+        }
+
+        if (ServersFixedToggles.Length == 0)
+        {
+            Debug.LogError("ServersFixedToggles is empty");
+        }
+
+        if (ServersDownToggles.Length == 0)
+        {
+            Debug.LogError("ServersDownToggles is empty");
         }
     }
 
@@ -85,6 +113,11 @@ public class HudController : MonoBehaviour
         if (Input.GetKeyDown("p"))
         {
             ProgressServersDown();
+        }
+
+        if (Input.GetKeyDown("n"))
+        {
+            ResetHudForLevel();
         }
 
         if (Input.GetKeyDown("space"))
