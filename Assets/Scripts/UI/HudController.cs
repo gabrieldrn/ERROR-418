@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using AmazingUI;
+using UnityEngine.SceneManagement;
 
 public class HudController : MonoBehaviour
 {
-
     private int progressFix = 0;
     private int progressDown = 0;
     public GameObject[] ServersFixedToggles;
     public GameObject[] ServersDownToggles;
 
-    public GameObject HudLayout;
-    public GameObject LevelClearedLayout;
-    public GameObject GameOverLayout;
+    private GameObject HudLayout;
+    private GameObject LevelClearedLayout;
+    private GameObject GameOverLayout;
 
     public void ProgressServersFixed()
     {
@@ -73,8 +72,24 @@ public class HudController : MonoBehaviour
         LevelClearedLayout.SetActive(true);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+     
+    public void LoadLevel(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
+    }
+
     private void Start()
     {
+        HudLayout = GameObject.Find("HUDLayout");
+        LevelClearedLayout = GameObject.Find("LevelClearedLayout");
+        GameOverLayout = GameObject.Find("GameOverLayout");
+        LevelClearedLayout.SetActive(false);
+        GameOverLayout.SetActive(false);
+
         if (GameOverLayout == null)
         {
             Debug.LogError("GameOverLayout is not set");
