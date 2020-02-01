@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1264973397}
   TriggerZone: {fileID: 1037471027}
   isHacked: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 122176666}
   TriggerZone: {fileID: 428623496}
   isHacked: 0
@@ -2358,6 +2360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1273368330}
   TriggerZone: {fileID: 1528992459}
   isHacked: 0
@@ -2731,6 +2734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 534823397}
   TriggerZone: {fileID: 1098777183}
   isHacked: 0
@@ -2781,6 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 288282557}
   TriggerZone: {fileID: 704743641}
   isHacked: 0
@@ -2831,6 +2836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1711303327}
   TriggerZone: {fileID: 723561212}
   isHacked: 0
@@ -3290,6 +3296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 714847191}
   TriggerZone: {fileID: 375660310}
   isHacked: 0
@@ -3581,6 +3588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 741141326}
   TriggerZone: {fileID: 1170127715}
   isHacked: 0
@@ -3973,6 +3981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1096775153}
   TriggerZone: {fileID: 2080653806}
   isHacked: 0
@@ -5179,6 +5188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1058881808}
   TriggerZone: {fileID: 1009934491}
   isHacked: 0
@@ -5588,6 +5598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 457024203}
   TriggerZone: {fileID: 461067859}
   isHacked: 0
@@ -8727,6 +8738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 0}
   TriggerZone: {fileID: 0}
   isHacked: 0
@@ -9298,6 +9310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 664224949}
   TriggerZone: {fileID: 641657315}
   isHacked: 0
@@ -12769,6 +12782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 1472715346}
   TriggerZone: {fileID: 811198688}
   isHacked: 0
@@ -13325,6 +13339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d500d47bf5c4d499d094069e434262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TIME_BEFORE_IRREPARABLE: 10
   lighting: {fileID: 36498274}
   TriggerZone: {fileID: 551789650}
   isHacked: 0
@@ -17262,6 +17277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783603810464613931, guid: c4e4c10e3a36bfd4e8d2a8ded69cfaa1,
+        type: 3}
+      propertyPath: TIME_BEFORE_IRREPARABLE
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4e4c10e3a36bfd4e8d2a8ded69cfaa1, type: 3}
