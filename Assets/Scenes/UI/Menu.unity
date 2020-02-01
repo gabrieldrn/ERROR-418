@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 78160865}
   - component: {fileID: 78160864}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '~/execute_servers_maintenance_protocol.sh
+  m_text: './execute_servers_maintenance_protocol.sh
 
 '
   m_isRightToLeft: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
     characterCount: 42
     spriteCount: 0
     spaceCount: 1
-    wordCount: 6
+    wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ~/reset.sh
+  m_text: ./reset.sh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb88711dc8d494ba991edd2a7fb02ae4, type: 2}
   m_sharedMaterial: {fileID: -280772723254720483, guid: cb88711dc8d494ba991edd2a7fb02ae4,
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 1247285805}
   - component: {fileID: 1247285804}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ~/disconnect_unit.sh
+  m_text: ./disconnect_unit.sh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb88711dc8d494ba991edd2a7fb02ae4, type: 2}
   m_sharedMaterial: {fileID: -280772723254720483, guid: cb88711dc8d494ba991edd2a7fb02ae4,
@@ -2153,7 +2153,7 @@ MonoBehaviour:
     characterCount: 20
     spriteCount: 0
     spaceCount: 0
-    wordCount: 4
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -3014,9 +3014,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1321008823}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 134709928}
+        m_MethodName: ResetProgress
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3025,9 +3025,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 134709928}
-        m_MethodName: ResetProgress
-        m_Mode: 1
+      - m_Target: {fileID: 1321008823}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
