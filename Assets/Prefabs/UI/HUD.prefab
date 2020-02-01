@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2418985118959120500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_margin: {x: 15, y: 0, z: 15, w: 0}
   m_textInfo:
     textComponent: {fileID: 2418985119179380456}
-    characterCount: 10
+    characterCount: 12
     spriteCount: 0
     spaceCount: 0
     wordCount: 2
@@ -1121,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2418985119496022994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 2418985119823167557}
   - component: {fileID: 2418985119823167556}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,9 +1458,6 @@ MonoBehaviour:
   - {fileID: 428766034703746367}
   - {fileID: 428766034437861676}
   - {fileID: 428766033709226179}
-  HudLayout: {fileID: 2418985118792800955}
-  LevelClearedLayout: {fileID: 2418985119496022993}
-  GameOverLayout: {fileID: 2418985118959120491}
 --- !u!1001 &2418985118844035094
 PrefabInstance:
   m_ObjectHideFlags: 0
