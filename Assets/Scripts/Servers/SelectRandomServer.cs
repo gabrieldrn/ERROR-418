@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectRandomServer : MonoBehaviour
 {
+    public static int idDep = 0;
     [Header("Number of rack in this bundle : ")]
     public int NB_RACKS_IN_BUNDLE = 3;
     [Header("Number of servers in this rack : ")]
@@ -12,7 +13,6 @@ public class SelectRandomServer : MonoBehaviour
     public float TIME_BEFORE_NEW_SELECTION = 10.0f;
     [Header("Time between each hack : ")]
     public float TIME_BEFORE_NEW_HACK = 5.0f;
-
 
     int randomRackIndex;
     int randomServerIndex;
@@ -48,15 +48,29 @@ public class SelectRandomServer : MonoBehaviour
         if (selectAServer)
         {
             serverSelectTimeLeft -= Time.deltaTime;
-
+            
             if(serverSelectTimeLeft < 0)
             {
                 serverSelected = selectRandomServer(rackSelected);
                 // Apply effect on selected server
                 effectOnServerChosen(serverSelected);
+                serverSelected.GetComponent<ServerModel>().isHacked = true;
+
+                foreach (Transform child in serverSelected.transform) if (child.CompareTag("TriggerZone"))
+                {
+                        Debug.Log("I'm in");
+                        bool interaction = child.GetComponent<InteractionZone>().inside;
+                        Light light = child.GetComponent<Light>();
+                        if (interaction)
+                        { // si l'on est dans la zone trigger du serveur piraté
+                            Debug.Log("Interaction du joueur avec un serveur piraté");
+                            light.color = Color.green;
+                        }
+                    }
 
                 // Resetting time left before choosing new server
                 serverSelectTimeLeft = TIME_BEFORE_NEW_SELECTION;
+                selectAServer = false;
             }
         }
     }
