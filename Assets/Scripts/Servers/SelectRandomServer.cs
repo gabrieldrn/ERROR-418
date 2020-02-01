@@ -4,69 +4,99 @@ using UnityEngine;
 
 public class SelectRandomServer : MonoBehaviour
 {
+    [Header("Number of rack in this bundle : ")]
+    public int NB_RACKS_IN_BUNDLE = 3;
     [Header("Number of servers in this rack : ")]
     public int NB_SERVERS_IN_RACK = 5;
+    [Header("Time between each bundle selection : ")]
+    public float TIME_BEFORE_NEW_SELECTION = 10.0f;
     [Header("Time between each hack : ")]
-    public float TIME_BEFORE_NEW_HACK = 15.0f;
+    public float TIME_BEFORE_NEW_HACK = 5.0f;
 
-    float timeLeft;
+
+    int randomRackIndex;
     int randomServerIndex;
-    GameObject selectedServer;
-    SelectRandomRack parentScript;
+    float bundleSelectTimeLeft;
+    float serverSelectTimeLeft;
+    bool selectAServer = false;
+    GameObject rackSelected;
+    GameObject serverSelected;
 
     void Start()
     {
-        // Get selecting rack script
-        parentScript = transform.parent.GetComponent<SelectRandomRack>();
-        timeLeft = TIME_BEFORE_NEW_HACK;
+        bundleSelectTimeLeft = TIME_BEFORE_NEW_SELECTION;
+        serverSelectTimeLeft = TIME_BEFORE_NEW_HACK;
     }
 
     void Update()
     {
-        if (this.isSelected())
+        // Decreasing time left
+        bundleSelectTimeLeft -= Time.deltaTime;
+
+        // Generating a random number if time left isn't 0
+        if (bundleSelectTimeLeft < 0)
         {
-            // Decreasing time left
-            timeLeft -= Time.deltaTime;
+            rackSelected = selectedRackIndex();
+            selectAServer = true;
 
-            // Generating a random number if time left isn't 0
-            if (timeLeft < 0)
+            // Resetting time left
+            bundleSelectTimeLeft = TIME_BEFORE_NEW_SELECTION;
+        }
+
+        // If a server has to be selected
+        if (selectAServer)
+        {
+            serverSelectTimeLeft -= Time.deltaTime;
+
+            if(serverSelectTimeLeft < 0)
             {
-                selectedServer = selectingRandomServer();
-                selectedServer.GetComponent<Renderer>().material.color = new Color(255f, 0f, 0f, 1f);
+                serverSelected = selectRandomServer(rackSelected);
+                // Apply effect on selected server
+                effectOnServerChosen(serverSelected);
 
-                // Resetting time left
-                timeLeft = TIME_BEFORE_NEW_HACK;
+                // Resetting time left before choosing new server
+                serverSelectTimeLeft = TIME_BEFORE_NEW_SELECTION;
             }
         }
     }
 
-    /* Selecting a random server in the rack
-     * Output : return chosen server
-     * Additional infos : 
-     *  - Range of random number for selection in (0, NB_SERVERS_IN_RACK)
+    /*
+     * Output : return a random rack
      */
-    GameObject selectingRandomServer()
+    GameObject selectedRackIndex()
+    {            
+        // Generating a random index
+        randomRackIndex = Random.Range(0, NB_RACKS_IN_BUNDLE);
+
+        // Actually returning the GameObject
+        return this.transform.GetChild(randomRackIndex).gameObject;
+    }
+
+    /* 
+     * Selecting a random server in the rack selected
+     */
+    GameObject selectRandomServer(GameObject rack)
     {
         // Generating a random index
         randomServerIndex = Random.Range(0, NB_SERVERS_IN_RACK);
 
         // Actually returning the GameObject
-        return this.transform.GetChild(randomServerIndex).gameObject;
+        return rack.transform.GetChild(randomServerIndex).gameObject;
     }
 
-
-    /* If selected index in parent equal to this child index return true
-     *
+    /* Adding effect to chosen server
+     * 
      */
-    public bool isSelected()
+    void effectOnServerChosen(GameObject server)
     {
-        if (parentScript.randomRackIndex == transform.GetSiblingIndex())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        server.GetComponent<Renderer>().material.color = new Color(255f, 0f, 0f, 1f);
+    }
+
+    /*
+     * Adding effect to dead server
+     */
+    void effectOnServerDead(GameObject server)
+    {
+        server.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f, 1f);
     }
 }

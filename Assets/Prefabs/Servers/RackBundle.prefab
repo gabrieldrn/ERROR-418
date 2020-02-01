@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NB_RACKS_IN_BUNDLE: 3
-  TIME_BEFORE_NEW_SELECTION: 15
-  randomRackIndex: 0
+  NB_SERVERS_IN_RACK: 5
+  TIME_BEFORE_NEW_SELECTION: 10
+  TIME_BEFORE_NEW_HACK: 5
 --- !u!1001 &2709932061410782197
 PrefabInstance:
   m_ObjectHideFlags: 0
