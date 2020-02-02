@@ -1,17 +1,26 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class HudController : MonoBehaviour
 {
+    public float TimeLeft = 30f;
+    public bool TimeLeftStop = true;
+    private float Minutes;
+    private float Seconds;
+
     private int progressFix = 0;
     private int progressDown = 0;
     public GameObject[] ServersFixedToggles;
     public GameObject[] ServersDownToggles;
 
+    private GameObject player;
     private GameObject HudLayout;
+    private GameObject TimeLeftText;
     private GameObject LevelClearedLayout;
     private GameObject GameOverLayout;
 
@@ -27,7 +36,7 @@ public class HudController : MonoBehaviour
             }
         }
     }
-
+                
     public void ProgressServersDown()
     {
         if (progressDown < ServersDownToggles.Length)
@@ -36,9 +45,18 @@ public class HudController : MonoBehaviour
 
             if (progressDown == ServersDownToggles.Length)
             {
+                player.GetComponent<ThirdPersonUserControl>().change_status();
                 ShowGameOver();
             }
         }
+    }
+
+    public void StartTimer(float from)
+    {
+        TimeLeftStop = false;
+        TimeLeft = from;
+        Update();
+        StartCoroutine(UpdateCoroutine());
     }
 
     public void ResetProgress()
@@ -84,25 +102,17 @@ public class HudController : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         HudLayout = GameObject.Find("HUDLayout");
+        TimeLeftText = GameObject.Find("TimeLeft");
         LevelClearedLayout = GameObject.Find("LevelClearedLayout");
         GameOverLayout = GameObject.Find("GameOverLayout");
         LevelClearedLayout.SetActive(false);
         GameOverLayout.SetActive(false);
 
-        if (GameOverLayout == null)
+        if (TimeLeftText == null)
         {
-            Debug.LogError("GameOverLayout is not set");
-        }
-
-        if (HudLayout == null)
-        {
-            Debug.LogError("HudLayout is not set");
-        }
-
-        if (LevelClearedLayout == null)
-        {
-            Debug.LogError("LevelClearedLayout is not set");
+            Debug.LogError("TimeLeftText is not set");
         }
 
         if (ServersFixedToggles.Length == 0)
@@ -114,6 +124,8 @@ public class HudController : MonoBehaviour
         {
             Debug.LogError("ServersDownToggles is empty");
         }
+
+        StartTimer(TimeLeft);
     }
 
 
@@ -138,6 +150,31 @@ public class HudController : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             ShowGameOver();
+        }
+
+        if (!TimeLeftStop)
+        {
+            TimeLeft -= Time.deltaTime;
+
+            Minutes = Mathf.Floor(TimeLeft / 60);
+            Seconds = TimeLeft % 60;
+            if (Seconds > 59) Seconds = 59;
+            if (Minutes < 0)
+            {
+                TimeLeftStop = true;
+                Minutes = 0;
+                Seconds = 0;
+                ShowGameOver();
+            }
+        }
+    }
+
+    private IEnumerator UpdateCoroutine()
+    {
+        while (!TimeLeftStop)
+        {
+            TimeLeftText.GetComponent<TMP_Text>().text = string.Format("{0:0}:{1:00}", Minutes, Seconds);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

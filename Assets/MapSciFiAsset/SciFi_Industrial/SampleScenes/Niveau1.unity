@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 697dcc1a69e1a2c4ea5db483875ede85, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -10924,7 +10924,7 @@ Transform:
   m_Children:
   - {fileID: 641915324}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1791271502 stripped
 Transform:
@@ -11721,7 +11721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2005715670
 PrefabInstance:
@@ -12557,6 +12557,11 @@ PrefabInstance:
     - target: {fileID: 2418985119823167552, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418985119823167556, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: TimeLeftStop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167611, guid: b111760491fde4533ae6d359b59fec70,

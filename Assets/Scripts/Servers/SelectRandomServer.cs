@@ -13,6 +13,8 @@ public class SelectRandomServer : MonoBehaviour
     public float TIME_BEFORE_NEW_SELECTION = 10.0f;
     [Header("Time between each hack : ")]
     public float TIME_BEFORE_NEW_HACK = 5.0f;
+    [Header("HUD reference : ")]
+    public HudController HUD;
 
     int randomRackIndex;
     int randomServerIndex;
@@ -58,13 +60,14 @@ public class SelectRandomServer : MonoBehaviour
 
                 foreach (Transform child in serverSelected.transform) if (child.CompareTag("TriggerZone"))
                 {
-                        Debug.Log("I'm in");
+                        //Debug.Log("I'm in");
                         bool interaction = child.GetComponent<InteractionZone>().inside;
                         Light light = child.GetComponent<Light>();
                         if (interaction)
                         { // si l'on est dans la zone trigger du serveur piraté
-                            Debug.Log("Interaction du joueur avec un serveur piraté");
+                            //Debug.Log("Interaction du joueur avec un serveur piraté");
                             light.color = Color.green;
+                            serverSelected.GetComponent<ServerModel>().isHacked = false;
                         }
                     }
 
@@ -110,14 +113,8 @@ public class SelectRandomServer : MonoBehaviour
         }
     }
 
-    /*
-     * Adding effect to dead server
-     */
-    void effectOnServerDead(GameObject server)
+    public void serverDown()
     {
-        foreach (Transform child in server.transform) if (child.CompareTag(lightsTag)) {
-            Light light = child.GetComponent<Light>();
-            light.color = Color.black;
-        }
+        HUD.ProgressServersDown();
     }
 }

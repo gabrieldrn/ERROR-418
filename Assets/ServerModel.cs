@@ -5,9 +5,17 @@ using System;
 
 public class ServerModel : MonoBehaviour, IComparable<ServerModel>
 {
+    [Header("Time between each hack : ")]
+    public float TIME_BEFORE_IRREPARABLE = 10.0f;
+
     public Light lighting;
     public GameObject TriggerZone;
     public bool isHacked;
+    public bool canBeFixed; 
+
+    string lightsTag = "ServerStatusLight";
+    float timeLeftBeforeIrreparable;
+
     public ServerModel(Light newLighting, GameObject newTriggerZone)
     {
         this.isHacked = false;
@@ -15,9 +23,26 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         this.TriggerZone = newTriggerZone;
     }
 
+    void Start()
+    {
+        this.canBeFixed = true;
+        timeLeftBeforeIrreparable = TIME_BEFORE_IRREPARABLE;
+    }
+
     public void Update()
     {
+        if (this.isHacked)
+        {
+            timeLeftBeforeIrreparable -= Time.deltaTime;
 
+            if(timeLeftBeforeIrreparable < 0)
+            {
+                effectOnServerDead();
+                this.canBeFixed = false;
+                this.isHacked = false;
+                this.transform.parent.root.GetComponent<SelectRandomServer>().serverDown();
+            }
+        }
     }
 
     public int CompareTo(ServerModel other)
@@ -32,5 +57,13 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         return this.lighting;
     }
 
+    /*
+     * Adding effect to dead server
+     */
+    void effectOnServerDead()
+    {
+        Light light = this.GetLight();
+        light.color = Color.black;
+    }
 
 }
