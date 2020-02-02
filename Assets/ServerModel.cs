@@ -9,6 +9,7 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public float TIME_BEFORE_IRREPARABLE = 10.0f;
 
     public Light lighting;
+    public ParticleSystem particles;
     public GameObject TriggerZone;
     public bool isHacked;
     public bool canBeFixed;
@@ -26,11 +27,12 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     string lightsTag = "ServerStatusLight";
     AudioSource audio;
 
-    public ServerModel(Light newLighting, GameObject newTriggerZone)
+    public ServerModel(Light newLighting, GameObject newTriggerZone, ParticleSystem newparticles)
     {
         this.isHacked = false;
         this.lighting = newLighting;
         this.TriggerZone = newTriggerZone;
+        this.particles = newparticles;
     }
 
     void Start()
@@ -42,6 +44,8 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public void InitServer()
     {
         GetLight().color = Color.green;
+        GetParticles().Clear();
+        GetParticles().Pause();
         playOnceHacked = true;
         playOnceDown = true;
         playOnceFixed = true;
@@ -166,6 +170,11 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public Light GetLight()
     {
         return this.lighting;
+    }
+
+    public ParticleSystem GetParticles()
+    {
+        return this.particles;
     }
 
     /*
