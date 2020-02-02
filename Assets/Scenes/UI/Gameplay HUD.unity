@@ -360,6 +360,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1784922994936023363, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784922994936023363, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784922994936023363, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784922994936023363, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784922994936023363, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418985118232687889, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2418985118959120491, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_IsActive
@@ -369,6 +399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418985119579027610, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167552, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
@@ -475,10 +510,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418985119823167556, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: TimeLeft
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167611, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762717637343964284, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b111760491fde4533ae6d359b59fec70, type: 3}

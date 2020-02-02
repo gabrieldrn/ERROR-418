@@ -12559,6 +12559,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418985119823167556, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: TimeLeftStop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167611, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_Name
