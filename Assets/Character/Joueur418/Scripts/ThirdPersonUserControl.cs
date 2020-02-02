@@ -13,7 +13,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        
+        private bool is_moving = true;
+
+        public void change_status()
+        {
+            if (is_moving) is_moving = false;
+            else is_moving = true;
+        }
         private void Start()
         {
             // get the transform of the main camera
@@ -55,10 +61,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
+                if (is_moving)
                 m_Move = v*m_CamForward + h*m_Cam.right;
             }
             else
             {
+                if (is_moving)
                 // we use world-relative directions in the case of no main camera
                 m_Move = v*Vector3.forward + h*Vector3.right;
             }
