@@ -127,7 +127,7 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
 
     public void addProgress(float progress)
     {
-        timeLeftBeforeIrreparable += progress;
+        if (this.isHacked) timeLeftBeforeIrreparable += progress;
     }
 
     public void updateProgressBar()
