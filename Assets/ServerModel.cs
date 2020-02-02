@@ -83,6 +83,7 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
             {
                 if(progressBar != null)
                 {
+                    progressBar.SetActive(true);
                     Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
                     progressBar.transform.position = namePose;
                     updateProgressBar();
