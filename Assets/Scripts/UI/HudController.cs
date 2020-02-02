@@ -13,29 +13,15 @@ public class HudController : MonoBehaviour
     private float Minutes;
     private float Seconds;
 
-    private int progressFix = 0;
     private int progressDown = 0;
-    public GameObject[] ServersFixedToggles;
     public GameObject[] ServersDownToggles;
+    public GameObject ServerProgressBarPrefab;
 
     private GameObject player;
     private GameObject HudLayout;
     private GameObject TimeLeftText;
     private GameObject LevelClearedLayout;
     private GameObject GameOverLayout;
-
-    public void ProgressServersFixed()
-    {
-        if (progressFix < ServersFixedToggles.Length)
-        {
-            ServersFixedToggles[progressFix++].GetComponent<Toggle>().isOn = true;
-
-            if(progressFix == ServersFixedToggles.Length)
-            {
-                ShowLevelCleared();
-            }
-        }
-    }
                 
     public void ProgressServersDown()
     {
@@ -61,16 +47,10 @@ public class HudController : MonoBehaviour
 
     public void ResetProgress()
     {
-        foreach(GameObject toggle in ServersFixedToggles)
-        {
-            toggle.GetComponent<Toggle>().isOn = false;
-        }
-
         foreach (GameObject toggle in ServersDownToggles)
         {
             toggle.GetComponent<Toggle>().isOn = false;
         }
-        progressFix = 0;
         progressDown = 0;
     }
 
@@ -78,6 +58,19 @@ public class HudController : MonoBehaviour
     {
         ResetProgress();
         LevelClearedLayout.SetActive(false);
+    }
+
+    public void ShowServerProgressBar(GameObject server)
+    {
+        GameObject inst = Instantiate(
+                ServerProgressBarPrefab,
+                new Vector3(0, 0, 0),
+                Quaternion.identity);
+
+        inst.transform.parent = HudLayout.transform.parent;
+
+        server.GetComponent<ServerModel>()
+            .setProgressBar(inst);
     }
 
     private void ShowGameOver()
@@ -115,11 +108,6 @@ public class HudController : MonoBehaviour
             Debug.LogError("TimeLeftText is not set");
         }
 
-        if (ServersFixedToggles.Length == 0)
-        {
-            Debug.LogError("ServersFixedToggles is empty");
-        }
-
         if (ServersDownToggles.Length == 0)
         {
             Debug.LogError("ServersDownToggles is empty");
@@ -132,11 +120,6 @@ public class HudController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("o"))
-        {
-            ProgressServersFixed();
-        }
-
         if (Input.GetKeyDown("p"))
         {
             ProgressServersDown();
@@ -145,11 +128,6 @@ public class HudController : MonoBehaviour
         if (Input.GetKeyDown("n"))
         {
             ResetHudForLevel();
-        }
-
-        if (Input.GetKeyDown("space"))
-        {
-            ShowGameOver();
         }
 
         if (!TimeLeftStop)
@@ -164,7 +142,7 @@ public class HudController : MonoBehaviour
                 TimeLeftStop = true;
                 Minutes = 0;
                 Seconds = 0;
-                ShowGameOver();
+                ShowLevelCleared();
             }
         }
     }

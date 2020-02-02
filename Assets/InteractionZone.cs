@@ -34,7 +34,6 @@ public class InteractionZone : MonoBehaviour
             }
 
             HUD.GetComponentInChildren<Image>().sprite = buttonSprite;
-            Debug.Log(Input.GetJoystickNames().Length);
 
             autre.GetComponent<FixingServer>().ServerModel = transform.parent.GetComponent<ServerModel>();
 
@@ -42,10 +41,6 @@ public class InteractionZone : MonoBehaviour
             {
                 renew.color = Color.green;
             }*/
-
-            transform.parent.GetComponent<ServerModel>().isHacked = false;
-            transform.parent.GetComponent<ServerModel>().timeLeftBeforeIrreparable = transform.parent.GetComponent<ServerModel>().TIME_BEFORE_IRREPARABLE;
-            transform.parent.GetComponent<ServerModel>().playOnceHacked = true;
         }
     }
     void OnTriggerExit(Collider autre)
@@ -56,7 +51,6 @@ public class InteractionZone : MonoBehaviour
         HUD = autre.GetComponent<FixingServer>().HUD;
         HUD.SetActive(false);
 
-        autre.GetComponent<FixingServer>().ResetQTE();
         autre.GetComponent<FixingServer>().ServerModel = null;
     }
 }

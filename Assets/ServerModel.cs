@@ -18,6 +18,10 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public AudioClip serverDown;
     public bool playOnceHacked;
     public bool playOnceDown;
+    public bool playOnceFixed;
+
+    private GameObject progressBar;
+    private bool firstLoop = true;
 
     string lightsTag = "ServerStatusLight";
     AudioSource audio;
@@ -31,19 +35,26 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
 
     void Start()
     {
-        this.canBeFixed = true;
+        InitServer();
+        audio = GetComponent<AudioSource>();
+    }
+
+    public void InitServer()
+    {
+        GetLight().color = Color.green;
         playOnceHacked = true;
         playOnceDown = true;
+        playOnceFixed = true;
+        this.isHacked = false;
+        this.canBeFixed = true;
+        this.firstLoop = true;
         timeLeftBeforeIrreparable = TIME_BEFORE_IRREPARABLE;
-        audio = GetComponent<AudioSource>();
     }
 
     public void Update()
     {
         if (this.isHacked)
         {
-            timeLeftBeforeIrreparable -= Time.deltaTime;
-
             if (playOnceHacked)
             {
                 audio.clip = serverHacked;
@@ -60,12 +71,87 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
                     playOnceDown = false;
                 }
 
-                effectOnServerDead();
-                this.canBeFixed = false;
-                this.isHacked = false;
-                this.transform.parent.root.GetComponent<SelectRandomServer>().serverDown();
+                if (this.canBeFixed)
+                {
+                    effectOnServerDead();
+                    this.canBeFixed = false;
+                    this.transform.parent.root.GetComponent<SelectRandomServer>().serverDown();
+                    Destroy(this.progressBar);
+                }
+            }
+            else
+            {
+                if(progressBar != null)
+                {
+                    Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
+                    progressBar.transform.position = namePose;
+                    updateProgressBar();
+                }
+                else
+                {
+                    this.transform.parent.root.GetComponent<SelectRandomServer>().createProgressBar(gameObject);
+                }
+
+                if (firstLoop) //First loop, ignore
+                {
+                    timeLeftBeforeIrreparable -= 0.01f;
+                    firstLoop = false;
+                }
+                else if(timeLeftBeforeIrreparable >= TIME_BEFORE_IRREPARABLE) //Repaired
+                {
+                    Debug.LogWarning(this.transform.parent.name + " => REPAIRED - time left : " + timeLeftBeforeIrreparable);
+                    Debug.LogWarning(this.ToString());
+                    FixServer();
+                    timeLeftBeforeIrreparable = TIME_BEFORE_IRREPARABLE - 0.01f;
+                    Destroy(this.progressBar);
+                }
+                else //Normal flow, decrease time left
+                {
+                    timeLeftBeforeIrreparable -= Time.deltaTime;
+                }
             }
         }
+        else
+        {
+            if(this.progressBar != null)
+            {
+                Destroy(this.progressBar);
+            }
+        }
+    }
+
+    public void setProgressBar(GameObject progressBar)
+    {
+        this.progressBar = progressBar;
+    }
+
+    public void addProgress(float progress)
+    {
+        timeLeftBeforeIrreparable += progress;
+    }
+
+    public void updateProgressBar()
+    {
+        float progress = timeLeftBeforeIrreparable / TIME_BEFORE_IRREPARABLE;
+        if (progress > 1f)
+            progress = 1f;
+        progressBar.GetComponentInChildren<ProgressBarController>().SetProgress(progress);
+    }
+
+    public float getProgress()
+    {
+        return timeLeftBeforeIrreparable;
+    }
+
+    public void FixServer()
+    {
+        if (playOnceFixed)
+        {
+            playFixedSound();
+            playOnceFixed = false;
+        }
+
+        InitServer();
     }
 
     public int CompareTo(ServerModel other)
