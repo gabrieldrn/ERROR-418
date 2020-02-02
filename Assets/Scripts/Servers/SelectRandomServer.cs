@@ -22,6 +22,7 @@ public class SelectRandomServer : MonoBehaviour
     float serverSelectTimeLeft;
     bool selectAServer = false;
     string lightsTag = "ServerStatusLight";
+    string interractTag = "TriggerZone";
     GameObject rackSelected;
     GameObject serverSelected;
 
@@ -50,17 +51,19 @@ public class SelectRandomServer : MonoBehaviour
         if (selectAServer)
         {
             serverSelectTimeLeft -= Time.deltaTime;
-            
-            if(serverSelectTimeLeft < 0)
+
+            if (serverSelectTimeLeft < 0)
             {
                 serverSelected = selectRandomServer(rackSelected);
                 // Apply effect on selected server
                 effectOnServerChosen(serverSelected);
-                
+
                 serverSelected.GetComponent<ServerModel>().isHacked = true;
 
-                foreach (Transform child in serverSelected.transform) if (child.CompareTag("TriggerZone"))
+                foreach (Transform child in serverSelected.transform)
                 {
+                    if (child.CompareTag(interractTag))
+                    {
                         //Debug.Log("I'm in");
                         bool interaction = child.GetComponent<InteractionZone>().inside;
                         Light light = child.GetComponent<Light>();
@@ -72,7 +75,9 @@ public class SelectRandomServer : MonoBehaviour
                             serverSelected.GetComponent<ServerModel>().timeLeftBeforeIrreparable = serverSelected.GetComponent<ServerModel>().TIME_BEFORE_IRREPARABLE;
                         }
                     }
-
+                }
+                    
+            
                 // Resetting time left before choosing new server
                 serverSelectTimeLeft = TIME_BEFORE_NEW_SELECTION;
                 selectAServer = false;
@@ -84,9 +89,22 @@ public class SelectRandomServer : MonoBehaviour
      * Output : return a random rack
      */
     GameObject selectedRackIndex()
-    {            
-        // Generating a random index
-        randomRackIndex = Random.Range(0, NB_RACKS_IN_BUNDLE);
+    {
+        bool canBeChoosed = false;
+        do
+        {
+            // Generating a random index
+            randomRackIndex = Random.Range(0, NB_RACKS_IN_BUNDLE);
+
+            for (int i = 0; i < this.transform.GetChild(randomRackIndex).childCount; i++)
+            {
+                if (this.transform.GetChild(randomRackIndex).GetChild(i).gameObject.GetComponent<ServerModel>().canBeFixed)
+                {
+                    canBeChoosed = true;
+                }
+            }
+        } while (!canBeChoosed);
+        
 
         // Actually returning the GameObject
         return this.transform.GetChild(randomRackIndex).gameObject;
@@ -101,7 +119,7 @@ public class SelectRandomServer : MonoBehaviour
         {
             // Generating a random index
             randomServerIndex = Random.Range(0, NB_SERVERS_IN_RACK);
-        } while (!rack.transform.GetChild(randomServerIndex).gameObject.GetComponent<ServerModel>().canBeFixed);
+        } while (!rack.transform.GetChild(randomServerIndex).gameObject.GetComponent<ServerModel>().canBeFixed );
         
 
         // Actually returning the GameObject
@@ -114,9 +132,17 @@ public class SelectRandomServer : MonoBehaviour
     void effectOnServerChosen(GameObject server)
     {
         server.GetComponent<ServerModel>().InitServer();
-        foreach (Transform child in server.transform) if (child.CompareTag(lightsTag)) {
-            Light light = child.GetComponent<Light>();
-            light.color = Color.red;
+        foreach (Transform child in server.transform)
+        {
+            if (child.CompareTag(lightsTag))
+            {
+                Light light = child.GetComponent<Light>();
+                light.color = Color.red;
+            }
+            if(child.CompareTag(interractTag))
+            {
+                child.GetComponentInChildren<ParticleSystem>().Play();
+            }
         }
     }
 
