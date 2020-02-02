@@ -1666,6 +1666,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4183757961019728833, guid: c5ea3ff934d89b44bb276ad0713d33ce,
+        type: 3}
+      propertyPath: gameTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: de64d053c7c744c42a9219bec36541d2, type: 3}
     - target: {fileID: 4183757961019728844, guid: c5ea3ff934d89b44bb276ad0713d33ce,
         type: 3}
       propertyPath: m_Name
