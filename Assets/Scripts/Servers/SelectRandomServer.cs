@@ -13,6 +13,8 @@ public class SelectRandomServer : MonoBehaviour
     public float TIME_BEFORE_NEW_SELECTION = 10.0f;
     [Header("Time between each hack : ")]
     public float TIME_BEFORE_NEW_HACK = 5.0f;
+    [Header("HUD reference : ")]
+    public HudController HUD;
 
     int randomRackIndex;
     int randomServerIndex;
@@ -109,5 +111,10 @@ public class SelectRandomServer : MonoBehaviour
             Light light = child.GetComponent<Light>();
             light.color = Color.red;
         }
+    }
+
+    public void serverDown()
+    {
+        HUD.ProgressServersDown();
     }
 }
