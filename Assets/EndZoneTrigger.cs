@@ -7,12 +7,21 @@ using UnityEngine.SceneManagement;
 public class EndZoneTrigger : MonoBehaviour
 {
     public bool active = false;
+    public bool isFinalLevel = false;
 
     void OnTriggerEnter(Collider autre)
     {
         if (active)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if(isFinalLevel)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            
         }
 
     }

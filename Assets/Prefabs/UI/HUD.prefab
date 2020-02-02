@@ -428,7 +428,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '> ERROR
 
-    > STATE CRITIAL
+    > STATE CRITICAL
 
     > SERVERS MAINTENANCE PROCESS FAILED'
   m_isRightToLeft: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_margin: {x: 198.62851, y: 280.0298, z: 182.03876, w: 283.10873}
   m_textInfo:
     textComponent: {fileID: 2418985118294441680}
-    characterCount: 60
+    characterCount: 61
     spriteCount: 0
     spaceCount: 9
     wordCount: 8
@@ -1342,7 +1342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0014953613, y: -0.00024414062}
+  m_AnchoredPosition: {x: 0.0014648438, y: -0.00024414062}
   m_SizeDelta: {x: -0.0029907, y: 0.0005188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5047323637990798236
