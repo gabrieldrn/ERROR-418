@@ -15,7 +15,9 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public float timeLeftBeforeIrreparable;
     public AudioClip serverFixed;
     public AudioClip serverHacked;
-    public bool playOnce;
+    public AudioClip serverDown;
+    public bool playOnceHacked;
+    public bool playOnceDown;
 
     string lightsTag = "ServerStatusLight";
     AudioSource audio;
@@ -30,7 +32,8 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     void Start()
     {
         this.canBeFixed = true;
-        playOnce = true;
+        playOnceHacked = true;
+        playOnceDown = true;
         timeLeftBeforeIrreparable = TIME_BEFORE_IRREPARABLE;
         audio = GetComponent<AudioSource>();
     }
@@ -41,15 +44,22 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         {
             timeLeftBeforeIrreparable -= Time.deltaTime;
 
-            if (playOnce)
+            if (playOnceHacked)
             {
                 audio.clip = serverHacked;
                 audio.Play();
-                playOnce = false;
+                playOnceHacked = false;
             }
 
             if(timeLeftBeforeIrreparable < 0)
             {
+                if (playOnceDown)
+                {
+                    audio.clip = serverDown;
+                    audio.Play();
+                    playOnceDown = false;
+                }
+
                 effectOnServerDead();
                 this.canBeFixed = false;
                 this.isHacked = false;
