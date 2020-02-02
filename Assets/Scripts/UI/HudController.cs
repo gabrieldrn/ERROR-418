@@ -68,7 +68,9 @@ public class HudController : MonoBehaviour
                 new Vector3(0, 0, 0),
                 Quaternion.identity);
 
-        inst.transform.parent = HudLayout.transform.parent;
+        inst.SetActive(false);
+        inst.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        inst.transform.SetParent(HudLayout.transform.parent, false);
 
         server.GetComponent<ServerModel>()
             .setProgressBar(inst);
