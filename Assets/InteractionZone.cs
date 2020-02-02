@@ -45,7 +45,7 @@ public class InteractionZone : MonoBehaviour
 
             transform.parent.GetComponent<ServerModel>().isHacked = false;
             transform.parent.GetComponent<ServerModel>().timeLeftBeforeIrreparable = transform.parent.GetComponent<ServerModel>().TIME_BEFORE_IRREPARABLE;
-            transform.parent.GetComponent<ServerModel>().playOnce = true;
+            transform.parent.GetComponent<ServerModel>().playOnceHacked = true;
         }
     }
     void OnTriggerExit(Collider autre)

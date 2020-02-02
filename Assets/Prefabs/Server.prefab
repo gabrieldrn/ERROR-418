@@ -928,7 +928,9 @@ MonoBehaviour:
   timeLeftBeforeIrreparable: 0
   serverFixed: {fileID: 8300000, guid: d8f7bf84a8de0f44795a23ae828f47c0, type: 3}
   serverHacked: {fileID: 8300000, guid: aa089c1012edca046b1a6bd5d531237c, type: 3}
-  playOnce: 0
+  serverDown: {fileID: 8300000, guid: ea8ad5fb5de875b458b40dde208786ee, type: 3}
+  playOnceHacked: 0
+  playOnceDown: 0
 --- !u!65 &918765829529796313
 BoxCollider:
   m_ObjectHideFlags: 0
