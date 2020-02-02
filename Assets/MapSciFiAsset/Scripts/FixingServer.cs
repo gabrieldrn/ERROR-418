@@ -11,18 +11,21 @@ public class FixingServer : MonoBehaviour
     public GameObject HUD;
     public Sprite buttonController;
     public Sprite buttonKeyboard;
-
+    public bool isFixed;
 
     private int speed; 
     private float currentAmount;
     float timestamp = 0.2f;
     private bool m_Interract;
+    bool playOnce;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
         currentAmount = 0;
+        isFixed = false;
+        playOnce = true;
     }
 
     public void IsFinished()
@@ -30,12 +33,22 @@ public class FixingServer : MonoBehaviour
         if(currentAmount >= 100)
         {
             ServerModel.GetLight().color = Color.green;
+
+            if (playOnce)
+            {
+                ServerModel.playFixedSound();
+                playOnce = false;
+            }
+
+            isFixed = true;
         }
     }
 
     public void ResetQTE()
     {
         currentAmount = 0;
+        isFixed = false;
+        playOnce = true;
     }
 
     // Update is called once per frame
