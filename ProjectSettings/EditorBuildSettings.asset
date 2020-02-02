@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/MainMenu.unity
     guid: 298eebf5df6324fd8837be455b37bc6f
   - enabled: 1
+    path: Assets/MapSciFiAsset/SciFi_Industrial/SampleScenes/Niveau1.unity
+    guid: 786c55e9b0161d64595faf174b482d10
+  - enabled: 1
     path: Assets/MapSciFiAsset/SciFi_Industrial/SampleScenes/Niveau2.unity
     guid: de7edc4e8ec96ac4387cf44dd1a9eac7
   - enabled: 1
-    path: Assets/MapSciFiAsset/SciFi_Industrial/SampleScenes/Niveau1.unity
-    guid: 786c55e9b0161d64595faf174b482d10
+    path: Assets/MapSciFiAsset/SciFi_Industrial/SampleScenes/Niveau3.unity
+    guid: 8e07db26ae111d0469af9fc641c5791b
+  - enabled: 1
+    path: Assets/MapSciFiAsset/SciFi_Industrial/SampleScenes/Niveau4.unity
+    guid: b6f71525e03d03345a033947c6a0795f
   m_configObjects: {}
