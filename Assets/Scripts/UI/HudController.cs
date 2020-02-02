@@ -130,11 +130,6 @@ public class HudController : MonoBehaviour
             ResetHudForLevel();
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            ShowGameOver();
-        }
-
         if (!TimeLeftStop)
         {
             TimeLeft -= Time.deltaTime;

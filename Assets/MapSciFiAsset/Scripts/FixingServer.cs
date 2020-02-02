@@ -27,10 +27,7 @@ public class FixingServer : MonoBehaviour
 
     public void IsFinished()
     {
-        if(currentAmount >= 100)
-        {
-            ServerModel.GetLight().color = Color.green;
-        }
+        ServerModel.GetLight().color = Color.green;
     }
 
     public void ResetQTE()
@@ -51,19 +48,18 @@ public class FixingServer : MonoBehaviour
 
         if (this.m_Interract)
         {
-            timestamp = Time.time + 0.2f;
-            currentAmount += speed;
+            float progress = this.ServerModel.getProgress();
+            if (progress > 0)
+            {
+                progress += 0.2f;
+                if(progress >= 1)
+                    this.IsFinished();
+                else
+                    this.ServerModel.addProgress(0.2f);
+            }
         }
-        if (Time.time >= timestamp && currentAmount >= 0 && currentAmount < 100)
-        {
-            currentAmount -= (speed * 2) * Time.deltaTime;
-        }
-        if (currentAmount / 100 != 1)
-        {
-            loadingBar.transform.GetComponent<Image>().fillAmount = currentAmount / 100;
-        }
+        
         this.m_Interract = false;
-        this.IsFinished();
     }
 
     private void FixedUpdate()

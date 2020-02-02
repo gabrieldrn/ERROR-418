@@ -37,7 +37,7 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         {
             timeLeftBeforeIrreparable -= Time.deltaTime;
 
-            if(timeLeftBeforeIrreparable <= 0)
+            if (timeLeftBeforeIrreparable <= 0)
             {
                 effectOnServerDead();
                 this.canBeFixed = false;
@@ -52,8 +52,7 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
                     Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
                     progressBar.transform.position = namePose;
                     float progress = timeLeftBeforeIrreparable / TIME_BEFORE_IRREPARABLE;
-                    Debug.Log(progress);
-                    progressBar.GetComponentInChildren<ProgressBarController>().SetProgress(progress);
+                    setProgress(progress);
                 }
                 else
                 {
@@ -70,6 +69,21 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public void setProgressBar(GameObject progressBar)
     {
         this.progressBar = progressBar;
+    }
+
+    public void addProgress(float progress)
+    {
+        timeLeftBeforeIrreparable += progress;
+    }
+
+    public void setProgress(float progress)
+    {
+        progressBar.GetComponentInChildren<ProgressBarController>().SetProgress(progress);
+    }
+
+    public float getProgress()
+    {
+        return progressBar.GetComponentInChildren<ProgressBarController>().GetProgress();
     }
 
     public int CompareTo(ServerModel other)
