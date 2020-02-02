@@ -12,11 +12,11 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public GameObject TriggerZone;
     public bool isHacked;
     public bool canBeFixed;
+    public float timeLeftBeforeIrreparable;
 
     private GameObject progressBar;
 
     string lightsTag = "ServerStatusLight";
-    float timeLeftBeforeIrreparable;
 
     public ServerModel(Light newLighting, GameObject newTriggerZone)
     {

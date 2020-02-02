@@ -68,6 +68,7 @@ public class SelectRandomServer : MonoBehaviour
                             //Debug.Log("Interaction du joueur avec un serveur piraté");
                             light.color = Color.green;
                             serverSelected.GetComponent<ServerModel>().isHacked = false;
+                            serverSelected.GetComponent<ServerModel>().timeLeftBeforeIrreparable = serverSelected.GetComponent<ServerModel>().TIME_BEFORE_IRREPARABLE;
                         }
                     }
 
