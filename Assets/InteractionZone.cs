@@ -13,7 +13,10 @@ public class InteractionZone : MonoBehaviour
         {
             //Debug.Log("Player inside dehack zone");
             Light renew = transform.parent.GetComponent<ServerModel>().GetLight();
+
+
             renew.color = Color.green;
+
             transform.parent.GetComponent<ServerModel>().isHacked = false;
         }
     }
