@@ -2111,6 +2111,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &429794991 stripped
@@ -2680,6 +2685,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &518022294 stripped
@@ -2765,6 +2775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
@@ -3604,6 +3619,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &607403024 stripped
@@ -4053,6 +4073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
@@ -4650,7 +4675,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f77539df9cdd1b1418a57aa6d42f6c9f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5771,6 +5796,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &1028862076 stripped
@@ -6018,6 +6048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
@@ -7216,6 +7251,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &1287516872 stripped
@@ -7833,6 +7873,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &1405584794 stripped
@@ -8242,6 +8287,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &1495908397 stripped
@@ -8508,7 +8558,7 @@ PrefabInstance:
     - target: {fileID: 2418985119823167552, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167552, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
@@ -8673,6 +8723,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
@@ -9394,6 +9449,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4893305673620525827, guid: 189f657aa5534d649b608dd527c696a4,
+        type: 3}
+      propertyPath: loadingBar
+      value: 
+      objectReference: {fileID: 1895983096}
+    - target: {fileID: 4893305673620525827, guid: 189f657aa5534d649b608dd527c696a4,
+        type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1680416455}
     - target: {fileID: 6196693745727015123, guid: 189f657aa5534d649b608dd527c696a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10160,6 +10225,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 528bab4d959abd8438a427ca2334205f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f74ca2aa4d988459ca0b72d44bd59b, type: 3}
+--- !u!1 &1680416455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1933509502249719933, guid: b111760491fde4533ae6d359b59fec70,
+    type: 3}
+  m_PrefabInstance: {fileID: 1522053158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1682207318
 GameObject:
   m_ObjectHideFlags: 0
@@ -10260,11 +10331,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478503828913141850, guid: 377bcfb485404484a815209a5e514ab8,
-        type: 3}
-      propertyPath: TIME_BEFORE_IRREPARABLE
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
@@ -11053,6 +11119,11 @@ PrefabInstance:
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
 --- !u!4 &1882396530 stripped
@@ -11060,6 +11131,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7478503828913141849, guid: 377bcfb485404484a815209a5e514ab8,
     type: 3}
   m_PrefabInstance: {fileID: 1882396529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1895983096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 187069980754016239, guid: b111760491fde4533ae6d359b59fec70,
+    type: 3}
+  m_PrefabInstance: {fileID: 1522053158}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914987640
 PrefabInstance:
@@ -11396,6 +11473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TIME_BEFORE_IRREPARABLE
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022607078675262020, guid: 377bcfb485404484a815209a5e514ab8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377bcfb485404484a815209a5e514ab8, type: 3}
