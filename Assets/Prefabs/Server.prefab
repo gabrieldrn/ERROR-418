@@ -924,6 +924,7 @@ MonoBehaviour:
   TriggerZone: {fileID: 7478503829515890768}
   isHacked: 0
   canBeFixed: 0
+  timeLeftBeforeIrreparable: 0
 --- !u!65 &918765829529796313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -935,8 +936,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7353109, y: 3.390616, z: 0.98491204}
-  m_Center: {x: -0.035420597, y: 0.112645864, z: -0.025791168}
+  m_Size: {x: 2.1490724, y: 3.390616, z: 1.9277972}
+  m_Center: {x: 0.022876143, y: 0.112645864, z: 0.0018387437}
 --- !u!1 &7478503829515890768
 GameObject:
   m_ObjectHideFlags: 0
