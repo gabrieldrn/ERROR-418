@@ -56,6 +56,7 @@ public class SelectRandomServer : MonoBehaviour
                 serverSelected = selectRandomServer(rackSelected);
                 // Apply effect on selected server
                 effectOnServerChosen(serverSelected);
+                
                 serverSelected.GetComponent<ServerModel>().isHacked = true;
 
                 foreach (Transform child in serverSelected.transform) if (child.CompareTag("TriggerZone"))
@@ -96,8 +97,12 @@ public class SelectRandomServer : MonoBehaviour
      */
     GameObject selectRandomServer(GameObject rack)
     {
-        // Generating a random index
-        randomServerIndex = Random.Range(0, NB_SERVERS_IN_RACK);
+        do
+        {
+            // Generating a random index
+            randomServerIndex = Random.Range(0, NB_SERVERS_IN_RACK);
+        } while (!rack.transform.GetChild(randomServerIndex).gameObject.GetComponent<ServerModel>().canBeFixed);
+        
 
         // Actually returning the GameObject
         return rack.transform.GetChild(randomServerIndex).gameObject;
@@ -108,6 +113,7 @@ public class SelectRandomServer : MonoBehaviour
      */
     void effectOnServerChosen(GameObject server)
     {
+        server.GetComponent<ServerModel>().InitServer();
         foreach (Transform child in server.transform) if (child.CompareTag(lightsTag)) {
             Light light = child.GetComponent<Light>();
             light.color = Color.red;

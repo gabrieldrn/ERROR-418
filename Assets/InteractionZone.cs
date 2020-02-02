@@ -23,6 +23,7 @@ public class InteractionZone : MonoBehaviour
 
             if(Input.GetJoystickNames().Length != 0)
             {
+                Debug.Log(HUD);
                 HUD.GetComponentInChildren<Text>().text = "Hit 'A' to defend the server !";
                 buttonSprite = autre.GetComponent<FixingServer>().buttonController;
                 

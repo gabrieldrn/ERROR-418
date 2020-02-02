@@ -94,13 +94,14 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
 
                 if (firstLoop) //First loop, ignore
                 {
-                    timeLeftBeforeIrreparable -= 0.01f;
+                    timeLeftBeforeIrreparable -= 0.1f;
                     firstLoop = false;
                 }
                 else if(timeLeftBeforeIrreparable >= TIME_BEFORE_IRREPARABLE) //Repaired
                 {
-                    Debug.LogWarning(this.transform.parent.name + " => REPAIRED - time left : " + timeLeftBeforeIrreparable);
-                    Debug.LogWarning(this.ToString());
+                    //Debug.Log(this.transform.parent.name + " => REPAIRED - time left : " + timeLeftBeforeIrreparable);
+                    //Debug.Log(this.ToString());
+
                     FixServer();
                     timeLeftBeforeIrreparable = TIME_BEFORE_IRREPARABLE - 0.01f;
                     Destroy(this.progressBar);
@@ -127,7 +128,8 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
 
     public void addProgress(float progress)
     {
-        if (this.isHacked) timeLeftBeforeIrreparable += progress;
+
+        if (this.isHacked) { timeLeftBeforeIrreparable += progress; }
     }
 
     public void updateProgressBar()
@@ -180,5 +182,4 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         audio.clip = serverFixed;
         audio.Play();
     }
-
 }
