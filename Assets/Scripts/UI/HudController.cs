@@ -18,6 +18,7 @@ public class HudController : MonoBehaviour
     public GameObject serversBundle;
     public GameObject ServerProgressBarPrefab;
     public GameObject audioObject;
+    public EndZoneTrigger EndZone;
 
     private GameObject player;
     private GameObject HudLayout;
@@ -81,7 +82,7 @@ public class HudController : MonoBehaviour
     {
         GameOverLayout.SetActive(true);
         audioObject.GetComponent<SoundsManager>().playLooseTheme();
-        serversBundle.GetComponent<SelectRandomServer>().randomSelectionActive = false;
+        serversBundle.GetComponent<SelectRandomServer>().randomSelectionActive = false;        
     }
 
     private void ShowLevelCleared()
@@ -89,7 +90,7 @@ public class HudController : MonoBehaviour
         LevelClearedLayout.SetActive(true);
         audioObject.GetComponent<SoundsManager>().playWinTheme();
         serversBundle.GetComponent<SelectRandomServer>().randomSelectionActive = false;
-
+        EndZone.SetActive();
     }
 
     public void LoadMainMenu()

@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class EndZoneTrigger : MonoBehaviour
 {
-    public string NextLevel;
     public bool active = false;
 
     void OnTriggerEnter(Collider autre)
     {
-        if (active && NextLevel != null)
+        if (active)
         {
-            SceneManager.LoadScene(NextLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-      
+
+    }
+    public void SetActive()
+    {
+        active = true;
     }
 }
