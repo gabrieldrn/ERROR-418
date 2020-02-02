@@ -189,6 +189,36 @@ Transform:
   m_Father: {fileID: 4689600558959967363}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!1 &1246013627537165838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234470894048281427}
+  m_Layer: 0
+  m_Name: ProgressbarPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &234470894048281427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246013627537165838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7478503828913141849}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556386840305635278
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +776,7 @@ Transform:
   - {fileID: 5385237365624308708}
   - {fileID: 868721933468753044}
   m_Father: {fileID: 7478503828913141849}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6332218361996626607
 GameObject:
@@ -901,6 +931,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 234470894048281427}
   - {fileID: 4689600558959967363}
   - {fileID: 7478503830772101170}
   - {fileID: 7478503829515890769}
@@ -924,6 +955,8 @@ MonoBehaviour:
   TriggerZone: {fileID: 7478503829515890768}
   isHacked: 0
   canBeFixed: 0
+  progressBar: {fileID: 1837258047184574, guid: 6276da193c2499946a79969cc52c076f,
+    type: 3}
 --- !u!65 &918765829529796313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -968,7 +1001,7 @@ Transform:
   m_LocalScale: {x: 1.3826, y: 3.3301098, z: 1.51011}
   m_Children: []
   m_Father: {fileID: 7478503828913141849}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7478503829515891116
 MeshFilter:
@@ -1033,7 +1066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7478503828913141849}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &7478503830772101171
 Light:

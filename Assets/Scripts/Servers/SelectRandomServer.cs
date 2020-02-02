@@ -15,7 +15,7 @@ public class SelectRandomServer : MonoBehaviour
     public float TIME_BEFORE_NEW_HACK = 5.0f;
     [Header("HUD reference : ")]
     public HudController HUD;
-
+    
     int randomRackIndex;
     int randomServerIndex;
     float bundleSelectTimeLeft;
@@ -116,5 +116,10 @@ public class SelectRandomServer : MonoBehaviour
     public void serverDown()
     {
         HUD.ProgressServersDown();
+    }
+
+    public void createProgressBar(GameObject server)
+    {
+        HUD.ShowServerProgressBar(server);
     }
 }

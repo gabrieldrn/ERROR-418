@@ -11,7 +11,9 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
     public Light lighting;
     public GameObject TriggerZone;
     public bool isHacked;
-    public bool canBeFixed; 
+    public bool canBeFixed;
+
+    private GameObject progressBar;
 
     string lightsTag = "ServerStatusLight";
     float timeLeftBeforeIrreparable;
@@ -35,14 +37,39 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
         {
             timeLeftBeforeIrreparable -= Time.deltaTime;
 
-            if(timeLeftBeforeIrreparable < 0)
+            if(timeLeftBeforeIrreparable <= 0)
             {
                 effectOnServerDead();
                 this.canBeFixed = false;
                 this.isHacked = false;
                 this.transform.parent.root.GetComponent<SelectRandomServer>().serverDown();
+                Destroy(this.progressBar);
+            }
+            else
+            {
+                if(progressBar != null)
+                {
+                    Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
+                    progressBar.transform.position = namePose;
+                    float progress = timeLeftBeforeIrreparable / TIME_BEFORE_IRREPARABLE;
+                    Debug.Log(progress);
+                    progressBar.GetComponentInChildren<ProgressBarController>().SetProgress(progress);
+                }
+                else
+                {
+                    this.transform.parent.root.GetComponent<SelectRandomServer>().createProgressBar(gameObject);
+                }
             }
         }
+        else
+        {
+            Destroy(this.progressBar);
+        }
+    }
+
+    public void setProgressBar(GameObject progressBar)
+    {
+        this.progressBar = progressBar;
     }
 
     public int CompareTo(ServerModel other)
