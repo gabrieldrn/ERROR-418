@@ -36,6 +36,7 @@ public class SoundsManager : MonoBehaviour
     {
         audio.clip = gameWon;
         audio.volume = 1;
+        audio.loop = false;
         audio.Play();
     }
 
@@ -43,6 +44,7 @@ public class SoundsManager : MonoBehaviour
     {
         audio.clip = gameLost;
         audio.volume = 1;
+        audio.loop = false;
         audio.Play();
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ServerStatusLight
   - TriggerZone
+  - Particles
   layers:
   - Default
   - TransparentFX
