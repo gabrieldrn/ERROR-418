@@ -39,6 +39,8 @@ public class ServerModel : MonoBehaviour, IComparable<ServerModel>
             {
                 effectOnServerDead();
                 this.canBeFixed = false;
+                this.isHacked = false;
+                this.transform.parent.root.GetComponent<SelectRandomServer>().serverDown();
             }
         }
     }

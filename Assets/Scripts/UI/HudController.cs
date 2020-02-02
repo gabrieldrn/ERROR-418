@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityStandardAssets.Characters.ThirdPerson;
 public class HudController : MonoBehaviour
 {
     private int progressFix = 0;
@@ -11,6 +11,7 @@ public class HudController : MonoBehaviour
     public GameObject[] ServersFixedToggles;
     public GameObject[] ServersDownToggles;
 
+    private GameObject player;
     private GameObject HudLayout;
     private GameObject LevelClearedLayout;
     private GameObject GameOverLayout;
@@ -36,6 +37,7 @@ public class HudController : MonoBehaviour
 
             if (progressDown == ServersDownToggles.Length)
             {
+                player.GetComponent<ThirdPersonUserControl>().change_status();
                 ShowGameOver();
             }
         }
@@ -84,6 +86,7 @@ public class HudController : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         HudLayout = GameObject.Find("HUDLayout");
         LevelClearedLayout = GameObject.Find("LevelClearedLayout");
         GameOverLayout = GameObject.Find("GameOverLayout");
