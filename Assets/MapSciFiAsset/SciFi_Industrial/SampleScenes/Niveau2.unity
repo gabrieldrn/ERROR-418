@@ -1040,6 +1040,7 @@ MonoBehaviour:
   TIME_BEFORE_NEW_SELECTION: 5
   TIME_BEFORE_NEW_HACK: 3
   HUD: {fileID: 1386146211}
+  randomSelectionActive: 1
 --- !u!4 &243040595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4603497549658392, guid: 37e77a47218919148afc5a8cd332b7c0,
@@ -4469,6 +4470,16 @@ PrefabInstance:
       propertyPath: audioObject
       value: 
       objectReference: {fileID: 1437093455}
+    - target: {fileID: 2418985119823167556, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: serversBundle
+      value: 
+      objectReference: {fileID: 241708624}
+    - target: {fileID: 2418985119823167556, guid: b111760491fde4533ae6d359b59fec70,
+        type: 3}
+      propertyPath: TimeLeftStop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2418985119823167611, guid: b111760491fde4533ae6d359b59fec70,
         type: 3}
       propertyPath: m_Name
