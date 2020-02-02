@@ -15,6 +15,7 @@ public class HudController : MonoBehaviour
 
     private int progressDown = 0;
     public GameObject[] ServersDownToggles;
+    public GameObject serversBundle;
     public GameObject ServerProgressBarPrefab;
     public GameObject audioObject;
 
@@ -80,12 +81,15 @@ public class HudController : MonoBehaviour
     {
         GameOverLayout.SetActive(true);
         audioObject.GetComponent<SoundsManager>().playLooseTheme();
+        serversBundle.GetComponent<SelectRandomServer>().randomSelectionActive = false;
     }
 
     private void ShowLevelCleared()
     {
         LevelClearedLayout.SetActive(true);
         audioObject.GetComponent<SoundsManager>().playWinTheme();
+        serversBundle.GetComponent<SelectRandomServer>().randomSelectionActive = false;
+
     }
 
     public void LoadMainMenu()

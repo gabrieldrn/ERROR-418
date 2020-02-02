@@ -15,6 +15,8 @@ public class SelectRandomServer : MonoBehaviour
     public float TIME_BEFORE_NEW_HACK = 5.0f;
     [Header("HUD reference : ")]
     public HudController HUD;
+
+    public bool randomSelectionActive = true;
     
     int randomRackIndex;
     int randomServerIndex;
@@ -33,6 +35,9 @@ public class SelectRandomServer : MonoBehaviour
 
     void Update()
     {
+
+        if (!randomSelectionActive) return;
+
         // Decreasing time left
         bundleSelectTimeLeft -= Time.deltaTime;
 
