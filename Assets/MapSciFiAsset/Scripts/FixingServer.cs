@@ -22,6 +22,7 @@ public class FixingServer : MonoBehaviour
             {
                 this.m_Interract = CrossPlatformInputManager.GetButtonDown("Submit");
             }
+
             if (this.m_Interract)
             {
                 float progress = this.ServerModel.getProgress();
