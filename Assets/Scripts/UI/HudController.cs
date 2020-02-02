@@ -16,6 +16,7 @@ public class HudController : MonoBehaviour
     private int progressDown = 0;
     public GameObject[] ServersDownToggles;
     public GameObject ServerProgressBarPrefab;
+    public GameObject audioObject;
 
     private GameObject player;
     private GameObject HudLayout;
@@ -76,11 +77,13 @@ public class HudController : MonoBehaviour
     private void ShowGameOver()
     {
         GameOverLayout.SetActive(true);
+        audioObject.GetComponent<SoundsManager>().playLooseTheme();
     }
 
     private void ShowLevelCleared()
     {
         LevelClearedLayout.SetActive(true);
+        audioObject.GetComponent<SoundsManager>().playWinTheme();
     }
 
     public void LoadMainMenu()
